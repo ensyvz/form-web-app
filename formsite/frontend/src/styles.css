@@ -1,0 +1,26 @@
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+input:focus-within ~ label,
+input:not(:placeholder-shown) ~ label {
+  @apply transform scale-75 -translate-y-5 text-black z-20;
+}
+
+@layer utilities {
+  .btn {
+    @apply px-4 text-white py-2 rounded;
+  }
+  .btn-lg {
+    @apply text-lg rounded-lg;
+  }
+  td {
+    @apply py-2 px-4 border border-black;
+  }
+  svg {
+    filter: drop-shadow(0 10px 8px rgba(0, 0, 0, 0.04))
+      drop-shadow(0 4px 3px rgba(0, 0, 0, 0.1));
+  }
+}
