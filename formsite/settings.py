@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-d&#0ui=gue6f&f1j0ld@o)337xkf3an4m5p=*a94ac@=$mhhg@
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['formtime-app.herokuapp.com', '127.0.0.1:8000']
+ALLOWED_HOSTS = ['formtime-app.herokuapp.com', '127.0.0.1']
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'frontend/static')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'

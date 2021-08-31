@@ -41,7 +41,7 @@ class Create extends Component {
     }
   }
   componentDidUpdate() {
-    if (this.props.detailedForm && this.state.formId === "") {
+    if (this.props.detailedForm.id && this.state.formId === "") {
       const form = this.props.detailedForm;
       this.setState({
         formId: form.id,
@@ -76,10 +76,10 @@ class Create extends Component {
       status: this.state.selectedStatus == "Inactive" ? 0 : 1,
       questions: this.state.questions,
     };
-    if (this.props.detailedForm.id === "") {
-      this.props.createForm(form);
-    } else {
+    if (this.props.detailedForm.id) {
       this.props.editForm(this.props.detailedForm.id, form);
+    } else {
+      this.props.createForm(form);
     }
   };
 
@@ -140,7 +140,7 @@ class Create extends Component {
       this.props.deleteMessage();
       return <Redirect to="/dashboard" />;
     } else {
-      const questions = this.state.questions.map((question, index) => (
+      const questions = this.state.questions?.map((question, index) => (
         <QuestionTr
           key={index}
           index={index}

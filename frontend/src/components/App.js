@@ -145,21 +145,7 @@ class Body extends React.Component {
     return <div></div>;
   }
 }
-class DebugRouter extends Router {
-  constructor(props) {
-    super(props);
-    console.log("initial history is: ", JSON.stringify(this.history, null, 2));
-    this.history.listen((location, action) => {
-      console.log(
-        `The current URL is ${location.pathname}${location.search}${location.hash}`
-      );
-      console.log(
-        `The last navigation action was ${action}`,
-        JSON.stringify(this.history, null, 2)
-      );
-    });
-  }
-}
+
 class App extends Component {
   componentDidMount() {
     store.dispatch(loadUser());
@@ -169,27 +155,25 @@ class App extends Component {
     return (
       <div>
         <Provider store={store}>
-          <DebugRouter>
-            <Switch>
-              <PrivateRoute path="/create/:id" component={Create} />
-              <PrivateRoute path="/create" component={Create} />
-              <PrivateRoute
-                path="/dashboard/form/:id"
-                component={SubmissionManagement}
-              />
-              <PrivateRoute path="/dashboard" component={Dashboard} />
-              <Route path="/submit/:id" component={Form} />
-              <Route path="/register">
-                <Register />
-              </Route>
-              <Route path="/login">
-                <Login />
-              </Route>
-              <Route path="/">
-                <Landing />
-              </Route>
-            </Switch>
-          </DebugRouter>
+          <Switch>
+            <PrivateRoute path="/create/:id" component={Create} />
+            <PrivateRoute path="/create" component={Create} />
+            <PrivateRoute
+              path="/dashboard/form/:id"
+              component={SubmissionManagement}
+            />
+            <PrivateRoute path="/dashboard" component={Dashboard} />
+            <Route path="/submit/:id" component={Form} />
+            <Route path="/register">
+              <Register />
+            </Route>
+            <Route path="/login">
+              <Login />
+            </Route>
+            <Route path="/">
+              <Landing />
+            </Route>
+          </Switch>
         </Provider>
       </div>
     );

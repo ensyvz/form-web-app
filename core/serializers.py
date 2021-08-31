@@ -36,7 +36,7 @@ class SubmissionSerializer(serializers.ModelSerializer):
 
 class QuestionSerializer(serializers.ModelSerializer):
     submissions = SubmissionSerializer(many=True, required=False)
-    id = serializers.IntegerField()
+    id = serializers.IntegerField(required=False)
 
     class Meta:
         model = Question
