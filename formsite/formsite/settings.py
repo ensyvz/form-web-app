@@ -28,7 +28,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [['formtime-app.herokuapp.com', '127.0.0.1:8000']]
 
-STATIC_ROOT = os.path.join(BASE_DIR, '/frontend/static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'frontend/static')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Application definition
