@@ -8,6 +8,7 @@ django = "*"
 djangorestframework = "*"
 django-rest-knox = "*"
 whitenoise = "*"
+gunicorn = "*"
 
 [dev-packages]
 autopep8 = "*"
