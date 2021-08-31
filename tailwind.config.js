@@ -12,10 +12,7 @@ const capitalizeFirst = plugin(function ({ addUtilities }) {
 });
 
 module.exports = {
-  purge: [
-    "./formsite/frontend/src/**/*.{js,jsx,ts,tsx}",
-    "./public/index.html",
-  ],
+  purge: ["./frontend/src/**/*.{js,jsx,ts,tsx}", "./public/index.html"],
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
