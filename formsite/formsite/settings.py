@@ -29,7 +29,7 @@ DEBUG = True
 ALLOWED_HOSTS = [['formtime-app.herokuapp.com', '127.0.0.1:8000']]
 
 STATIC_ROOT = os.path.join(BASE_DIR, '/frontend/static')
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.django.CompressedManifestStaticFilesStorage'
 
 # Application definition
 
@@ -53,6 +53,7 @@ REST_FRAMEWORK = {
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
