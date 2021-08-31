@@ -96,7 +96,7 @@ class GradientText extends React.Component {
   render() {
     return (
       <span
-        className={`w-min whitespace-nowrap bg-clip-text text-transparent bg-gradient-to-r from-${this.props.startColor} to-${this.props.endColor}`}
+        className={`w-min whitespace-nowrap bg-clip-text text-transparent bg-gradient-to-r ${this.props.startColor} ${this.props.endColor}`}
       >
         {this.props.text}
       </span>
@@ -114,26 +114,26 @@ class Showcase extends React.Component {
       <div className="flex flex-col content-center pl-4 md:pl-20 lg:pl-32 py-4 space-y-6 text-7xl md:text-9xl font-sans font-black md:tracking-wide">
         <GradientText
           text="Forms"
-          startColor="purple-50"
-          endColor="purple-100"
+          startColor="from-purple-50"
+          endColor="to-purple-100"
         />
 
         <GradientText
           text="Create"
-          startColor="purple-50"
-          endColor="purple-200"
+          startColor="from-purple-50"
+          endColor="to-purple-200"
         />
 
         <GradientText
           text="Publish"
-          startColor="purple-50"
-          endColor="purple-300"
+          startColor="from-purple-50"
+          endColor="to-purple-300"
         />
 
         <GradientText
           text={"Collect" + this.information}
-          startColor="purple-500"
-          endColor="purple-900"
+          startColor="from-purple-500"
+          endColor="to-purple-900"
         />
       </div>
     );
