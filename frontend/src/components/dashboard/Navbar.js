@@ -15,7 +15,7 @@ export class Navbar extends Component {
 
   render() {
     return (
-      <div className="flex flex-row px-12 py-4 h-12 items-center justify-between bg-gray-200">
+      <div className="flex flex-row px-2 sm:px-12 py-4 h-12 items-center justify-between bg-gray-200">
         <div className="flex flex-row">
           <img
             src={logo}

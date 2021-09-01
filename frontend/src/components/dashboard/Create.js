@@ -152,7 +152,7 @@ class Create extends Component {
       return (
         <div>
           <Navbar />
-          <form className="flex m-4 space-x-4">
+          <form className="flex flex-row flex-wrap m-4 gap-4">
             <InputField
               name="formName"
               placeholder="Form Name"
@@ -186,17 +186,15 @@ class Create extends Component {
             </button>
           </form>
           <form className="flex flex-col m-4 space-y-4">
-            <table className="table table-fixed w-full border-collapse">
-              <thead className="border-b-4 border-black">
-                <tr>
-                  <th>Title</th>
-                  <th>Description</th>
-                  <th>Type</th>
-                  <th>Order</th>
-                </tr>
-              </thead>
-              <tbody>{questions}</tbody>
-            </table>
+            <div className="w-full">
+              <div className="w-full sm:inline-block hidden px-2 sm:px-4 border-black">
+                <span className="inline-block w-2/6">Title</span>
+                <span className="inline-block w-2/6">Description</span>
+                <span className="inline-block w-1/6">Type</span>
+                <span className="inline-block w-1/6">Order</span>
+              </div>
+              <div className="space-y-4">{questions}</div>
+            </div>
             <button
               className="text-white rounded mt-2 bg-green-500 hover:bg-green-600 focus:bg-green-700"
               onClick={(event) => this.addNewQuestion(event)}
@@ -215,42 +213,54 @@ class QuestionTr extends Component {
     const types = ["number", "text"];
 
     return (
-      <tr className="border-2 border-black rounded">
-        <td>
-          <InputField
-            name="title"
-            placeholder="Question Title"
-            value={this.props.question.title}
-            type="text"
-            onChange={(event) => this.props.onChange(event, this.props.index)}
-          />
-        </td>
-        <td>
-          <InputField
-            name="description"
-            placeholder="Question Description"
-            value={this.props.question.description}
-            type="text"
-            onChange={(event) => this.props.onChange(event, this.props.index)}
-          />
-        </td>
-        <td>
-          <ListboxInput
-            array={types}
-            value={this.props.question.data_type}
-            onChange={(type) => this.props.onChange(type, this.props.index)}
-          />
-        </td>
-        <td className="flex justify-around">
-          <button
-            type="button"
-            className="btn bg-red-500 hover:bg-red-700 focus:bg-red-900"
-            onClick={() => this.props.onDelete(this.props.index)}
-          >
-            Delete
-          </button>
-        </td>
-      </tr>
+      <div className="flex flex-row flex-wrap sm:flex-nowrap w-full bg-gray-100 shadow p-2 sm:p-4 rounded gap-4">
+        <div className="w-full sm:w-2/6 relative">
+          <span className="w-2/5 sm:hidden inline-block">Title :</span>
+          <div className="w-3/5 sm:w-full inline-block">
+            <InputField
+              name="title"
+              placeholder="Question Title"
+              value={this.props.question.title}
+              type="text"
+              onChange={(event) => this.props.onChange(event, this.props.index)}
+            />
+          </div>
+        </div>
+        <div className="w-full sm:w-2/6 relative">
+          <span className="w-2/5 sm:hidden inline-block">Description :</span>
+          <div className="w-3/5 sm:w-full inline-block">
+            <InputField
+              name="description"
+              placeholder="Question Description"
+              value={this.props.question.description}
+              type="text"
+              onChange={(event) => this.props.onChange(event, this.props.index)}
+            />
+          </div>
+        </div>
+        <div className="w-full sm:w-1/6 relative">
+          <span className="w-2/5 sm:hidden inline-block">Type :</span>
+          <div className="w-3/5 sm:w-full inline-block">
+            <ListboxInput
+              array={types}
+              value={this.props.question.data_type}
+              onChange={(type) => this.props.onChange(type, this.props.index)}
+            />
+          </div>
+        </div>
+        <div className="w-full sm:w-1/6 relative">
+          <span className="w-2/5 sm:hidden inline-block">Order :</span>
+          <div className="w-3/5 sm:w-full inline-block">
+            <button
+              type="button"
+              className="btn bg-red-500 hover:bg-red-700 focus:bg-red-900"
+              onClick={() => this.props.onDelete(this.props.index)}
+            >
+              Delete
+            </button>
+          </div>
+        </div>
+      </div>
     );
   }
 }
@@ -284,7 +294,7 @@ class InputField extends Component {
 
 function ListboxInput(props) {
   return (
-    <div className="w-32">
+    <div className="w-auto">
       <Listbox value={props.value} onChange={props.onChange}>
         <div className="relative">
           <Listbox.Button className="relative w-full py-2 pl-3 pr-10 text-left bg-white rounded-lg shadow-md cursor-default focus:outline-none focus-visible:ring-2 focus-visible:ring-opacity-75 focus-visible:ring-white focus-visible:ring-offset-orange-300 focus-visible:ring-offset-2 focus-visible:border-indigo-500 sm:text-sm">
