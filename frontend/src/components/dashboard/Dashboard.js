@@ -57,7 +57,7 @@ class Dashboard extends Component {
         <Navbar />
         <div className="p-4 sm:px-12 sm:py-4">
           <div className="w-full">
-            <div className="w-full sm:inline-block hidden px-2 sm:px-4 border-black">
+            <div className="w-full sm:inline-block hidden px-2 sm:px-4 border-black bg-gr-start rounded-t py-2 text-white">
               <span className="inline-block w-2/5">Name</span>
               <span className="inline-block w-2/5">Closing Date</span>
               <span className="inline-block w-1/5">State</span>
